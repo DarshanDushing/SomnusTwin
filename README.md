@@ -9,10 +9,10 @@
 
 | Role | Name | Institute |
 |---|---|---|
-| Team Leader | [YOUR NAME] | [YOUR COLLEGE] |
-| Member 2 | [TEAMMATE'S NAME] | [COLLEGE] |
+| Team Leader | Darshan Dushing | DJSCE |
+| Member 2 | Janvhi Vavre | Hitech Institute of Technology |
 
-**Repo folder name on submission:** `SomnusTwin_[YourCollegeName]`
+**Repo folder name on submission:** `SomnusTwin`
 
 ---
 
