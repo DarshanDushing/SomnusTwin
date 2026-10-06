@@ -137,7 +137,7 @@ Or just `python main.py` to launch both together.
 ---
 
 ## 7. Demo Video
-**[LINK TO BE ADDED]**
+[Watch SomnusTwin Demo](YOUR_VIDEO_LINK)
 
 ## 8. License
 MIT — see [LICENSE](LICENSE).
@@ -146,7 +146,7 @@ MIT — see [LICENSE](LICENSE).
 See [View Architecture Diagram](docs/architecture_diagram.pdf).
 
 ## 10. Presentation
-See [View Presentation]("docs/SomnusTwin_Presentation.pptx").
+See [View Presentation](docs/SomnusTwin_Presentation.pptx).
 
 ---
 
