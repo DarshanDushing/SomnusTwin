@@ -143,10 +143,10 @@ Or just `python main.py` to launch both together.
 MIT — see [LICENSE](LICENSE).
 
 ## 9. Architecture Diagram
-See [docs/architecture_diagram.pdf](docs/architecture_diagram.pdf).
+See [View Architecture Diagram](docs/architecture_diagram.pdf).
 
 ## 10. Presentation
-See [docs/presentation.pdf](docs/presentation.pdf).
+See [View Presentation]("docs/SomnusTwin_Presentation.pptx").
 
 ---
 
