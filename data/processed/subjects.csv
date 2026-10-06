@@ -1,0 +1,11 @@
+subject_id,n_minutes,total_apnea_minutes,ahi_approx,has_spo2,fs,osa_severity
+a01,480,209,52.0,True,100,severe
+a02,490,268,45.0,True,100,severe
+a03,470,242,38.0,True,100,severe
+a04,460,58,28.0,True,100,moderate
+a05,480,60,22.0,True,100,moderate
+b01,450,19,12.0,True,100,mild
+b02,460,8,8.0,True,100,mild
+c01,440,0,3.0,True,100,normal
+c02,450,0,1.0,True,100,normal
+x01,480,217,60.0,True,100,severe

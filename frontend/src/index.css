@@ -1,0 +1,371 @@
+@import "tailwindcss";
+
+
+/* ── Design tokens — calm clinical palette ──────────────────────── */
+:root {
+  --bg:              #0B1220;
+  --bg-elevated:     #121B2E;
+  --surface:         #17213A;
+  --surface-alt:     #1D2B4A;
+
+  /* Clinical palette — calm, trustworthy, not alarmist */
+  --primary:         #5FD4C4;   /* soft teal — calm/low risk */
+  --primary-dark:    #3FB8A6;
+  --accent-lavender: #7FA8D9;   /* soft slate blue — normal/mild */
+  --accent-amber:    #E8B85C;   /* warm muted amber — moderate/medium */
+  --accent-coral:    #D97757;   /* muted clay/terracotta — high/severe */
+
+  --risk-low:        #5FD4C4;
+  --risk-medium:     #E8B85C;
+  --risk-high:       #D97757;
+
+  --text-primary:    #EAF0FA;
+  --text-secondary:  #8A99B3;
+  --border:          #26334F;
+
+  --glow-primary:    rgba(95, 212, 196, 0.12);
+  --glow-amber:      rgba(232, 184, 92, 0.15);
+  --glow-coral:      rgba(217, 119, 87, 0.15);
+  --glow-lavender:   rgba(127, 168, 217, 0.15);
+}
+
+/* Light mode override removed to enforce dark theme */
+
+/* ── Global base ───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+/* Numeric values: tabular nums */
+.num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-elevated); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-secondary); }
+
+/* ── Surface cards ────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 8px 30px var(--glow-primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 40px var(--glow-primary);
+}
+
+.card-alt {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+/* ── Glow shadows ─────────────────────────────────────────────── */
+.glow-primary { box-shadow: 0 0 20px rgba(95, 212, 196, 0.25); }
+.glow-amber   { box-shadow: 0 0 20px rgba(232, 184, 92, 0.25); }
+.glow-coral   { box-shadow: 0 0 20px rgba(217, 119, 87, 0.25); }
+
+/* ── Risk colour utilities ───────────────────────────────────── */
+.risk-low    { color: var(--risk-low); }
+.risk-medium { color: var(--risk-medium); }
+.risk-high   { color: var(--risk-high); }
+
+/* ── Ambient star background ─────────────────────────────────── */
+.star-field {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: rgba(95, 212, 196, 0.35);
+  animation: drift linear infinite;
+}
+
+@keyframes drift {
+  0%   { transform: translateY(0) translateX(0); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 0.5; }
+  100% { transform: translateY(-100vh) translateX(40px); opacity: 0; }
+}
+
+/* ── Micro animations ─────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(95, 212, 196, 0.3); }
+  50%       { box-shadow: 0 0 30px rgba(95, 212, 196, 0.6); }
+}
+
+@keyframes count-up {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.animate-fade-up   { animation: fadeInUp 0.4s ease forwards; }
+.animate-scale-in  { animation: scaleIn 0.35s ease forwards; }
+.animate-slide-left{ animation: slideInLeft 0.35s ease forwards; }
+.animate-pulse-glow{ animation: pulse-glow 2s ease infinite; }
+
+/* Stagger helper for chip lists */
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 60ms; }
+.stagger > *:nth-child(3) { animation-delay: 120ms; }
+.stagger > *:nth-child(4) { animation-delay: 180ms; }
+.stagger > *:nth-child(5) { animation-delay: 240ms; }
+
+/* ── Chip ─────────────────────────────────────────────────────── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+/* ── Severity badges — calm clinical palette ─────────────────── */
+.severity-normal   { background: rgba(127,168,217,0.15); color: var(--accent-lavender); border-color: rgba(127,168,217,0.3); }
+.severity-mild     { background: rgba(95,212,196,0.12);  color: var(--primary);         border-color: rgba(95,212,196,0.25); }
+.severity-moderate { background: rgba(232,184,92,0.15);  color: var(--accent-amber);    border-color: rgba(232,184,92,0.3);  }
+.severity-severe   { background: rgba(217,119,87,0.15);  color: var(--accent-coral);    border-color: rgba(217,119,87,0.3);  }
+
+/* ── Button ───────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #0B1220;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: scale(1.02);
+  box-shadow: 0 0 16px rgba(95, 212, 196, 0.4);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  background: var(--surface-alt);
+  color: var(--text-primary);
+  transform: scale(1.02);
+}
+
+/* ── Input / slider ───────────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 8px rgba(95, 212, 196, 0.5);
+  transition: transform 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* ── Timeline scrubber ───────────────────────────────────────── */
+.scrubber {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ── Disclaimer banner ───────────────────────────────────────── */
+.disclaimer-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(11, 18, 32, 0.95);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  padding: 6px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+/* ── Chart overrides ─────────────────────────────────────────── */
+.recharts-cartesian-grid line {
+  stroke: var(--border);
+  stroke-opacity: 0.5;
+}
+.recharts-text {
+  fill: var(--text-secondary);
+  font-size: 0.7rem;
+}
+.recharts-tooltip-wrapper {
+  outline: none;
+}
+
+/* ── Tab nav ─────────────────────────────────────────────────── */
+.tab {
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  background: transparent;
+}
+.tab:hover { color: var(--text-primary); background: var(--surface-alt); }
+.tab.active {
+  color: var(--primary);
+  background: var(--glow-primary);
+  border-color: var(--glow-primary);
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────── */
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: calc(100vh - 40px);
+  overflow-y: auto;
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border);
+}
+
+/* ── Risk gauge ──────────────────────────────────────────────── */
+.risk-gauge-track {
+  stroke: var(--border);
+  fill: none;
+}
+.risk-gauge-fill {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              stroke 0.6s ease;
+}
+
+/* ── Sparkline ──────────────────────────────────────────────── */
+.sparkline-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Event marker ───────────────────────────────────────────── */
+.event-marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-coral);
+  opacity: 0.8;
+}
+.event-marker::before {
+  content: '⚠';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--accent-coral);
+}
+
+/* ── Prediction lead badge ──────────────────────────────────── */
+.lead-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: rgba(95, 212, 196, 0.15);
+  color: var(--primary);
+  border: 1px solid rgba(95, 212, 196, 0.3);
+  white-space: nowrap;
+}

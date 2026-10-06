@@ -1,0 +1,17 @@
+/* App.css — SomnusTwin global overrides */
+/* All design tokens live in index.css. This file handles app-shell-specific layout. */
+
+#root {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Spin utility for loading spinners */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

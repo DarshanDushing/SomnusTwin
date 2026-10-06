@@ -1,0 +1,15 @@
+{
+  "data_sources": {
+    "signals": "Synthetic demo data (physiologically plausible, same schema as PhysioNet)",
+    "ehr_profiles": "Synthea-inspired synthetic profiles",
+    "linkage_basis": "OSA severity band"
+  },
+  "n_subjects": 10,
+  "severity_distribution": {
+    "severe": 4,
+    "moderate": 2,
+    "mild": 2,
+    "normal": 2
+  },
+  "disclaimer": "THIS IS SYNTHETIC DEMO DATA. Run fetch_physionet.py to replace with real PhysioNet data."
+}

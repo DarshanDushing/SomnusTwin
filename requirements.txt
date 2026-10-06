@@ -1,0 +1,26 @@
+# SomnusTwin — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# PhysioNet data access
+wfdb>=4.1.0
+
+# Machine learning
+lightgbm>=4.0.0
+scikit-learn>=1.3.0
+torch>=2.0.0
+shap>=0.44.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.11.0
+pyarrow>=14.0.0        # for parquet read/write
+
+# Database
+sqlalchemy>=2.0.0
+
+# API
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+pydantic>=2.0.0

@@ -1,0 +1,11 @@
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+data/processed/*.csv
+data/processed/*.parquet
+data/processed/*.db
+frontend/dist/
+*.log

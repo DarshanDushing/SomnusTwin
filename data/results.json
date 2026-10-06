@@ -1,0 +1,183 @@
+{
+  "model_config": {
+    "gru_hidden": 32,
+    "gru_layers": 2,
+    "seq_len": 30,
+    "n_features": 59,
+    "n_gru_features": 32,
+    "n_total_features": 91,
+    "n_test_subjects": 10,
+    "lgbm_n_estimators": 400
+  },
+  "validation_approach": {
+    "split": "10-fold leave-one-subject-out CV (no row-level leakage)",
+    "ground_truth": "Real PhysioNet Apnea-ECG expert annotations",
+    "prediction_horizon": "30 minutes ahead",
+    "n_subjects_total": 10,
+    "n_subjects_test": 10
+  },
+  "primary_metrics": {
+    "auroc": 0.5134764896054095,
+    "auroc_std": 0.11703783172011253,
+    "auprc": 0.7005103233930533,
+    "auprc_std": 0.32449841235827537,
+    "sensitivity_at_80_specificity": 0.10285217623115628,
+    "sensitivity_at_80_specificity_std": 0.16068419998330455,
+    "sensitivity_at_90_specificity": 0.022926187861428013,
+    "sensitivity_at_90_specificity_std": 0.03496949068318448,
+    "brier_score": 0.18031212708720984,
+    "brier_score_std": 0.08482759917497719,
+    "n_test": 4707,
+    "positive_rate_test": 0.5697687640786171,
+    "pooled_auroc": 0.7393397042186607,
+    "pooled_auprc": 0.8760981025625487,
+    "pooled_sens_80": 0.42105263157894735,
+    "pooled_brier": 0.178086353159897
+  },
+  "ablation": {
+    "ehr_only": {
+      "auroc": 0.5,
+      "auroc_std": 0.0,
+      "auprc": 0.7122109651548602,
+      "auprc_std": 0.30565824697120547,
+      "sensitivity_at_80_specificity": 0.0,
+      "sensitivity_at_80_specificity_std": 0.0,
+      "sensitivity_at_90_specificity": 0.0,
+      "sensitivity_at_90_specificity_std": 0.0,
+      "brier_score": 0.15880716597771566,
+      "brier_score_std": 0.102882283128015,
+      "pooled_auroc": 0.8260049353854146,
+      "pooled_auprc": 0.9122880211300456,
+      "pooled_sens_80": 0.6442831215970962,
+      "pooled_brier": 0.15577731422606245
+    },
+    "wearable_only": {
+      "auroc": 0.49103121749631,
+      "auroc_std": 0.13894547684157568,
+      "auprc": 0.6936884730757165,
+      "auprc_std": 0.32185722589004745,
+      "sensitivity_at_80_specificity": 0.13455279713379154,
+      "sensitivity_at_80_specificity_std": 0.1339003655759941,
+      "sensitivity_at_90_specificity": 0.09979702858662498,
+      "sensitivity_at_90_specificity_std": 0.14312451001604468,
+      "brier_score": 0.1534456217823626,
+      "brier_score_std": 0.09799766758669512,
+      "pooled_auroc": 0.8082980439604759,
+      "pooled_auprc": 0.9146801551594844,
+      "pooled_sens_80": 0.5912885662431941,
+      "pooled_brier": 0.15106105308130507
+    },
+    "fused": {
+      "auroc": 0.5134764896054095,
+      "auroc_std": 0.11703783172011253,
+      "auprc": 0.7005103233930533,
+      "auprc_std": 0.32449841235827537,
+      "sensitivity_at_80_specificity": 0.10285217623115628,
+      "sensitivity_at_80_specificity_std": 0.16068419998330455,
+      "sensitivity_at_90_specificity": 0.022926187861428013,
+      "sensitivity_at_90_specificity_std": 0.03496949068318448,
+      "brier_score": 0.18031212708720984,
+      "brier_score_std": 0.08482759917497719,
+      "n_test": 4707,
+      "positive_rate_test": 0.5697687640786171,
+      "pooled_auroc": 0.7393397042186607,
+      "pooled_auprc": 0.8760981025625487,
+      "pooled_sens_80": 0.42105263157894735,
+      "pooled_brier": 0.178086353159897
+    }
+  },
+  "shap_top_features": [
+    {
+      "feature": "neck_circumference_cm",
+      "importance": 0.12222257807417448
+    },
+    {
+      "feature": "hrv_mean_30m",
+      "importance": 0.04360585680452248
+    },
+    {
+      "feature": "gru_h_20",
+      "importance": 0.014029630970533457
+    },
+    {
+      "feature": "gru_h_19",
+      "importance": 0.012399212304453974
+    },
+    {
+      "feature": "hr_mean_60m",
+      "importance": 0.011958602238277908
+    }
+  ],
+  "per_subject_metrics": [
+    {
+      "subject_id": "a01",
+      "auroc": 0.6690573770491803,
+      "auprc": 0.998646451439874,
+      "sens_80": 0.0,
+      "brier": 0.23448117403456079
+    },
+    {
+      "subject_id": "a02",
+      "auroc": 0.4580610021786493,
+      "auprc": 0.9675793697955704,
+      "sens_80": 0.16862745098039217,
+      "brier": 0.03434669316816998
+    },
+    {
+      "subject_id": "a03",
+      "auroc": 0.7018888888888888,
+      "auprc": 0.9756453275335879,
+      "sens_80": 0.5044444444444445,
+      "brier": 0.040779744261722255
+    },
+    {
+      "subject_id": "a04",
+      "auroc": 0.525844611528822,
+      "auprc": 0.6135678318679941,
+      "sens_80": 0.0,
+      "brier": 0.23336279998260887
+    },
+    {
+      "subject_id": "a05",
+      "auroc": 0.4912354340309008,
+      "auprc": 0.6589566962001635,
+      "sens_80": 0.04892966360856269,
+      "brier": 0.23205006464563832
+    },
+    {
+      "subject_id": "b01",
+      "auroc": 0.40663701377987094,
+      "auprc": 0.296638732400645,
+      "sens_80": 0.07051282051282051,
+      "brier": 0.25725383315920775
+    },
+    {
+      "subject_id": "b02",
+      "auroc": 0.3276034456237502,
+      "auprc": 0.1068298903801643,
+      "sens_80": 0.030303030303030304,
+      "brier": 0.18046307024483133
+    },
+    {
+      "subject_id": "c01",
+      "auroc": null,
+      "auprc": null,
+      "sens_80": null,
+      "brier": null
+    },
+    {
+      "subject_id": "c02",
+      "auroc": null,
+      "auprc": null,
+      "sens_80": null,
+      "brier": null
+    },
+    {
+      "subject_id": "x01",
+      "auroc": 0.5274841437632135,
+      "auprc": 0.9862182875264273,
+      "sens_80": 0.0,
+      "brier": 0.2297596372009395
+    }
+  ]
+}
