@@ -10,7 +10,8 @@
 | Role | Name | Institute |
 |---|---|---|
 | Team Leader | Darshan Dushing | DJSCE |
-| Member 2 | Janvhi Vavre | Hitech Institute of Technology |
+| Member 2 | Switi Kumari | College of Commerce, Arts & Science, Patna |
+| Member 3 | Janvhi Vavre | Hitech Institute of Technology |
 
 **Repo folder name on submission:** `SomnusTwin`
 
@@ -137,16 +138,16 @@ Or just `python main.py` to launch both together.
 ---
 
 ## 7. Demo Video
-[Watch SomnusTwin Demo](YOUR_VIDEO_LINK)
+[Watch SomnusTwin Demo](https://youtu.be/L_z3HKTRYbc)
 
 ## 8. License
-MIT — see [LICENSE](LICENSE).
+MIT License — see [LICENSE](LICENSE).
 
 ## 9. Architecture Diagram
-See [View Architecture Diagram](docs/architecture_diagram.pdf).
+[View Architecture Diagram](docs/architecture_diagram.pdf)
 
 ## 10. Presentation
-See [View Presentation](docs/SomnusTwin_Presentation.pptx).
+[View Presentation](docs/SomnusTwin_Presentation.pptx)
 
 ---
 
